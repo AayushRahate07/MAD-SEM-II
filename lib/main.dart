@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:mathquest/games/bazaar_bill.dart';
-
+import 'package:mathquest/games/samay_sudhaar.dart';
+import 'package:mathquest/games/math_shape_ninja.dart';
 void main() {
   runApp(const MathQuestApp());
 }
@@ -166,7 +167,7 @@ class _GameModuleCardState extends State<GameModuleCard> {
       // Wrap the card in a GestureDetector to handle clicks
       child: GestureDetector(
         onTap: () {
-          // Check if this specific card is the Bazaar Bill
+          // Route to Bazaar Bill
           if (widget.title == "BAZAAR BILL") {
             Navigator.push(
               context,
@@ -174,8 +175,28 @@ class _GameModuleCardState extends State<GameModuleCard> {
                 builder: (context) => const BazaarBillGame(),
               ),
             );
+          } 
+          // Route to Clock Game (Mapping to QUICK TICK)
+          else if (widget.title == "QUICK TICK") { 
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const SamaySudhaarGame(),
+              ),
+            );
           }
+          // Route to Fruit Ninja Shape Game (Mapping to SHAPE SURGE)
+          else if (widget.title == "SHAPE SURGE") {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const MathShapeNinjaGame(),
+              ),
+            );
+          }
+          // Add more else-if blocks here as you build the other games!
         },
+        // child: AnimatedScale(
         child: AnimatedScale(
           scale: _isHovered ? 1.02 : 1.0,
           duration: const Duration(milliseconds: 200),
